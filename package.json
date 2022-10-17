@@ -1,0 +1,20 @@
+{
+  "name": "frontend-proveedores",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EnriqueSanchezS/frontend-proveedores.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/EnriqueSanchezS/frontend-proveedores/issues"
+  },
+  "homepage": "https://github.com/EnriqueSanchezS/frontend-proveedores#readme"
+}
