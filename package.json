@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/EnriqueSanchezS/frontend-proveedores/issues"
   },
-  "homepage": "https://github.com/EnriqueSanchezS/frontend-proveedores#readme"
+  "homepage": "https://github.com/EnriqueSanchezS/frontend-proveedores#readme",
+  "dependencies": {
+    "bootstrap": "^5.2.2"
+  }
 }
