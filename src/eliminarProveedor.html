@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eliminar Proveedor</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-10">
+                <ul class="nav nav-tabs">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="./crearProveedor.html">Registrar
+                            Proveedor</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Consultar Proveedor</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Modificar Proveedor</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./eliminarProveedor.html">Eliminar Proveedor</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-6">
+                <h2 class="text-center">Eliminar proveedor</h2>
+                <form class="delete-supplier">
+                    <div class="mb-3">
+                        <label for="Proveedor" class="form-label">Id proveedor</label>
+                        <input type="text" class="form-control" id="Proveedor" name="idProveedor">
+                    </div>
+                    <div class="col-md-6 d-grid mx-auto">
+                        <button type="submit" class="btn btn-danger">Eliminar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/eliminarProveedor.js"></script>
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+
+
+</body>
+
+</html>

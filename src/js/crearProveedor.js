@@ -16,6 +16,19 @@ const valuesForm = {title: "",
                     cp: ""
                    };
 
+const sendForm = async (url = "", data = {}) => {
+    
+    const response = await fetch(url, {
+        method: 'POST',
+        body: JSON.stringify(data),
+        headers:{
+            'Content-Type': 'application/json'
+          }
+    });
+
+    return response.json();
+}
+
 inputs.forEach(input => {
     input.addEventListener("blur", event => {
         valuesForm[event.target.name] = event.target.value; 
@@ -50,7 +63,13 @@ form.forEach(form => {
             event.preventDefault();
             event.stopPropagation();
             form.classList.remove("was-validated");
-            console.log(valuesForm); 
+            sendForm("", valuesForm)
+            .then(data => {
+                console.log(data);
+            })
+            .catch(error => {
+                console.log(error);
+            })
         }
     });
 });
