@@ -1,31 +1,111 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
 
-    <!-- Bootstrap CSS -->
-    <link href="css/style.css" rel="stylesheet">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="css/style.css" rel="stylesheet">
 </head>
+
 <body>
-    <form>
-        <div class="mb-3">
-          <label for="exampleInputEmail1" class="form-label">Email address</label>
-          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-          <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
-        </div>
-        <div class="mb-3">
-          <label for="exampleInputPassword1" class="form-label">Password</label>
-          <input type="password" class="form-control" id="exampleInputPassword1">
-        </div>
-        <div class="mb-3 form-check">
-          <input type="checkbox" class="form-check-input" id="exampleCheck1">
-          <label class="form-check-label" for="exampleCheck1">Check me out</label>
-        </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
-      </form>
-    <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+  
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-8 border border-primary">
+        <h2 class="text-center">Registrar proveedor</h2>
+        <form class="row needs-validation" action="#" id="formulario" novalidate>
+          <div class="col-12 mb-3">
+            <label for="Titulo" class="form-label">Titulo</label>
+            <input type="text" class="form-control" id="Titulo" name="title" required>
+            <div class="invalid-feedback">
+              Titulo requerido
+            </div>
+          </div>
+          <div class="col-md-6 mb-3">
+            <label for="IdCliente" class="form-label">Id cliente</label>
+            <input type="text" class="form-control" id="IdCliente" name="idClient" required>
+            <div class="invalid-feedback">
+              Id requerido 
+            </div>
+          </div>
+          <div class="col-md-6 mb-3">
+            <label for="Email" class="form-label">Email</label>
+            <input type="email" class="form-control" id="Email" name="email" required>
+            <div class="invalid-feedback">
+              Email inválido
+            </div>
+          </div>
+          <div class="col-md-6 mb-3">
+            <label for="Nombre" class="form-label">Nombre</label>
+            <input type="text" class="form-control" id="Nombre" name="nameA" required>
+            <div class="invalid-feedback">
+              Nombre requerido 
+            </div>
+          </div>
+          <div class="col-md-6 mb-3">
+            <label for="Apellido" class="form-label">Apellido</label>
+            <input type="text" class="form-control" id="Apellido" name="surName">
+          </div>
+          <div class="col-12 mb-3">
+            <label for="Rfc" class="form-label">RFC</label>
+            <input type="text" class="form-control" id="Rfc" name="rfc" required>
+            <div class="invalid-feedback">
+              RFC requerido
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="RegimenFiscal" class="form-label">Régimen fiscal</label>
+            <input type="text" class="form-control" id="RegimenFiscal" name="fiscal" required>
+            <div class="invalid-feedback">
+              Régimen fiscal requerido
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="Calle" class="form-label">Calle</label>
+            <input type="text" class="form-control" id="Calle" name="street" required>
+            <div class="invalid-feedback">
+              Calle requerida 
+            </div>
+          </div>
+          <div class="col-md-3 mb-3">
+            <label for="Pais" class="form-label">Pais</label>
+            <input type="text" class="form-control" id="Pais" name="country" required>
+            <div class="invalid-feedback">
+              País requerido
+            </div>
+          </div>
+          <div class="col-md-3 mb-3">
+            <label for="Region" class="form-label">Region</label>
+            <input type="text" class="form-control" id="Region" name="region">
+          </div>
+          <div class="col-md-3 mb-3">
+            <label for="Ciudad" class="form-label">Ciudad</label>
+            <input type="text" class="form-control" id="Ciudad" name="city" required>
+            <div class="invalid-feedback">
+              Ciudad requerida
+            </div>
+          </div>
+          <div class="col-md-3 mb-3">
+            <label for="Cp" class="form-label">C.P.</label>
+            <input type="text" class="form-control" id="Cp" name="cp" required>
+            <div class="invalid-feedback">
+              C.P. requerido
+            </div>
+          </div>
+          <div class="col-md-6 d-grid mx-auto">
+            <button type="submit" class="btn btn-primary">Enviar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/proveedores.js"></script>
+  <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 </body>
+
 </html>
