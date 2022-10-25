@@ -9,9 +9,36 @@
 
     <!-- Bootstrap CSS -->
     <link href="css/style.css" rel="stylesheet">
+
+    <!-- Bootstrap JS-->
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 </head>
 
 <body>
+
+    <div aria-live="polite" aria-atomic="true" class="position-relative">
+        <div class="toast-container top-0 start-50 translate-middle-x p-3">
+            <div class="toast text-bg-success border-0" id="toast-success" role="status" aria-live="assertive" aria-atomic="true">
+                <div class="d-flex">
+                  <div class="toast-body">
+                    Proveedor registrado exitosamente
+                  </div>
+                  <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+                </div>
+            </div>    
+        </div>
+
+        <div class="toast-container top-0 start-50 translate-middle-x p-3">
+            <div class="toast text-bg-danger border-0" id="toast-danger" role="status" aria-live="assertive" aria-atomic="true">
+                <div class="d-flex">
+                  <div class="toast-body">
+                    Hubo un error en el registro del proveedor
+                  </div>
+                  <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+                </div>
+            </div>    
+        </div>
+    </div>
 
     <div class="container">
         <div class="row justify-content-center">
@@ -42,78 +69,79 @@
                 <form class="row needs-validation" action="#" id="formulario" novalidate>
                     <div class="col-12 mb-3">
                         <label for="Titulo" class="form-label">Titulo</label>
-                        <input type="text" class="form-control" id="Titulo" name="title" required>
+                        <input type="text" class="form-control" id="Titulo" name="title" maxlength="15" required>
                         <div class="invalid-feedback">
                             Titulo requerido
                         </div>
                     </div>
                     <div class="col-md-6 mb-3">
                         <label for="IdCliente" class="form-label">Id cliente</label>
-                        <input type="text" class="form-control" id="IdCliente" name="idClient" required>
+                        <input type="text" class="form-control" id="IdCliente" name="client_id" maxlength="40" required>
                         <div class="invalid-feedback">
                             Id requerido
                         </div>
                     </div>
                     <div class="col-md-6 mb-3">
                         <label for="Email" class="form-label">Email</label>
-                        <input type="email" class="form-control" id="Email" name="email" required>
+                        <input type="email" class="form-control" id="Email" name="email" maxlength="241" required>
                         <div class="invalid-feedback">
                             Email inválido
                         </div>
                     </div>
                     <div class="col-md-6 mb-3">
                         <label for="Nombre" class="form-label">Nombre</label>
-                        <input type="text" class="form-control" id="Nombre" name="nameA" required>
+                        <input type="text" class="form-control" id="Nombre" name="name" maxlength="120" required>
                         <div class="invalid-feedback">
                             Nombre requerido
                         </div>
                     </div>
                     <div class="col-md-6 mb-3">
                         <label for="Apellido" class="form-label">Apellido</label>
-                        <input type="text" class="form-control" id="Apellido" name="surName">
+                        <input type="text" class="form-control" id="Apellido" name="surname" maxlength="120">
                     </div>
                     <div class="col-12 mb-3">
                         <label for="Rfc" class="form-label">RFC</label>
-                        <input type="text" class="form-control" id="Rfc" name="rfc" required>
+                        <input type="text" class="form-control" id="Rfc" name="rfc" maxlength="30" required>
                         <div class="invalid-feedback">
                             RFC requerido
                         </div>
                     </div>
                     <div class="mb-3">
                         <label for="RegimenFiscal" class="form-label">Régimen fiscal</label>
-                        <input type="text" class="form-control" id="RegimenFiscal" name="fiscal" required>
+                        <input type="text" class="form-control" id="RegimenFiscal" name="regimen_fiscal" maxlength="6"
+                            required>
                         <div class="invalid-feedback">
                             Régimen fiscal requerido
                         </div>
                     </div>
                     <div class="mb-3">
                         <label for="Calle" class="form-label">Calle</label>
-                        <input type="text" class="form-control" id="Calle" name="street" required>
+                        <input type="text" class="form-control" id="Calle" name="street" maxlength="150" required>
                         <div class="invalid-feedback">
                             Calle requerida
                         </div>
                     </div>
                     <div class="col-md-3 mb-3">
                         <label for="Pais" class="form-label">Pais</label>
-                        <input type="text" class="form-control" id="Pais" name="country" required>
+                        <input type="text" class="form-control" id="Pais" name="country" maxlength="3" required>
                         <div class="invalid-feedback">
                             País requerido
                         </div>
                     </div>
                     <div class="col-md-3 mb-3">
                         <label for="Region" class="form-label">Region</label>
-                        <input type="text" class="form-control" id="Region" name="region">
+                        <input type="text" class="form-control" id="Region" name="region" maxlength="3">
                     </div>
                     <div class="col-md-3 mb-3">
                         <label for="Ciudad" class="form-label">Ciudad</label>
-                        <input type="text" class="form-control" id="Ciudad" name="city" required>
+                        <input type="text" class="form-control" id="Ciudad" name="city" maxlength="71" required>
                         <div class="invalid-feedback">
                             Ciudad requerida
                         </div>
                     </div>
                     <div class="col-md-3 mb-3">
                         <label for="Cp" class="form-label">C.P.</label>
-                        <input type="text" class="form-control" id="Cp" name="cp" required>
+                        <input type="text" class="form-control" id="Cp" name="cp" maxlength="10" required>
                         <div class="invalid-feedback">
                             C.P. requerido
                         </div>
@@ -127,7 +155,6 @@
     </div>
 
     <script src="js/crearProveedor.js"></script>
-    <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 
 </body>
 

@@ -2,6 +2,9 @@
 const form = document.querySelector(".delete-supplier");
 const input = document.querySelector(".delete-supplier input");
 
+let myAlertWarning = document.querySelector("#toast-warning");
+let waAlert = new bootstrap.Toast(myAlertWarning); 
+
 const valuesForm = { idProveedor: "" };
 
 const sendForm = async (url = "", data = {}) => {
@@ -26,7 +29,7 @@ form.addEventListener("submit", event => {
     event.stopPropagation();
     sendForm("", valuesForm)
     .then(data => {
-        console.log(data);
+        waAlert.show();
     })
     .catch(error => {
         console.log(error);

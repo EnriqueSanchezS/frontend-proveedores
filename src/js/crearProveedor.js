@@ -2,13 +2,18 @@
 const inputs = document.querySelectorAll(".needs-validation input");
 const form =  document.querySelectorAll(".needs-validation");
 
+let myAlertSuccess = document.querySelector("#toast-success");
+let myAlertDanger = document.querySelector("#toast-danger");
+let sucAlert = new bootstrap.Toast(myAlertSuccess);
+let daAlert = new bootstrap.Toast(myAlertDanger); 
+
 const valuesForm = {title: "", 
-                    idClient: "", 
+                    client_id: "", 
                     email: "", 
-                    nameA: "", 
-                    surName: "", 
+                    name: "", 
+                    surname: "", 
                     rfc: "", 
-                    fiscal: "", 
+                    regimen_fiscal: "", 
                     street:"", 
                     country: "", 
                     region: "", 
@@ -65,10 +70,10 @@ form.forEach(form => {
             form.classList.remove("was-validated");
             sendForm("", valuesForm)
             .then(data => {
-                console.log(data);
+                sucAlert.show();
             })
             .catch(error => {
-                console.log(error);
+                daAlert.show(); 
             })
         }
     });
