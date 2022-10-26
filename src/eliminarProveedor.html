@@ -18,10 +18,32 @@
 
     <div aria-live="polite" aria-atomic="true" class="position-relative">
         <div class="toast-container top-0 start-50 translate-middle-x p-3">
+            <div class="toast text-bg-info border-0" id="toast-info" role="status" aria-live="assertive" aria-atomic="true">
+                <div class="d-flex">
+                  <div class="toast-body">
+                    Proveedor inválido 
+                  </div>
+                  <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+                </div>
+            </div>    
+        </div>
+
+        <div class="toast-container top-0 start-50 translate-middle-x p-3">
             <div class="toast text-bg-warning border-0" id="toast-warning" role="status" aria-live="assertive" aria-atomic="true">
                 <div class="d-flex">
                   <div class="toast-body">
                     Proveedor eliminado 
+                  </div>
+                  <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+                </div>
+            </div>    
+        </div>
+
+        <div class="toast-container top-0 start-50 translate-middle-x p-3">
+            <div class="toast text-bg-danger border-0" id="toast-danger" role="status" aria-live="assertive" aria-atomic="true">
+                <div class="d-flex">
+                  <div class="toast-body">
+                    Hubo un error al eliminar el proveedor
                   </div>
                   <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
                 </div>
@@ -41,7 +63,7 @@
                         <a class="nav-link" href="#">Consultar Proveedor</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Modificar Proveedor</a>
+                        <a class="nav-link" href="./modificarProveedor.html">Modificar Proveedor</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="./eliminarProveedor.html">Eliminar Proveedor</a>
@@ -54,14 +76,75 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-6">
-                <h2 class="text-center">Eliminar proveedor</h2>
-                <form class="delete-supplier">
+                <h2 class="text-center">Borrar proveedor</h2>
+                <form class="get-proveedor" novalidate>
                     <div class="mb-3">
                         <label for="Proveedor" class="form-label">Id proveedor</label>
-                        <input type="text" class="form-control" id="Proveedor" name="idProveedor">
+                        <input type="text" class="form-control" id="Proveedor" name="idProveedor" required>
+                        <div class="invalid-feedback">
+                            Id requerido
+                        </div>
                     </div>
                     <div class="col-md-6 d-grid mx-auto">
-                        <button type="submit" class="btn btn-danger">Eliminar</button>
+                        <button type="submit" class="btn btn-primary" name="getPro">Borrar proveedor</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="container my-3 invisible" id="show-info">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <h2 class="text-center">Proveedor eliminado</h2>
+                <form class="row values">
+                    <div class="col-12 mb-3">
+                        <label for="Titulo" class="form-label">Titulo</label>
+                        <input type="text" class="form-control" id="Titulo" name="title" disabled>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="IdCliente" class="form-label">Id cliente</label>
+                        <input type="text" class="form-control" id="IdCliente" name="client_id" disabled>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="Email" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="Email" name="email" disabled>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="Nombre" class="form-label">Nombre</label>
+                        <input type="text" class="form-control" id="Nombre" name="name" disabled>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="Apellido" class="form-label">Apellido</label>
+                        <input type="text" class="form-control" id="Apellido" name="surname" disabled>
+                    </div>
+                    <div class="col-12 mb-3">
+                        <label for="Rfc" class="form-label">RFC</label>
+                        <input type="text" class="form-control" id="Rfc" name="rfc" disabled>
+                    </div>
+                    <div class="mb-3">
+                        <label for="RegimenFiscal" class="form-label">Régimen fiscal</label>
+                        <input type="text" class="form-control" id="RegimenFiscal" name="regimen_fiscal" disabled>
+                    </div>
+                    <div class="mb-3">
+                        <label for="Calle" class="form-label">Calle</label>
+                        <input type="text" class="form-control" id="Calle" name="street" disabled>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label for="Pais" class="form-label">Pais</label>
+                        <input type="text" class="form-control" id="Pais" name="country" disabled>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label for="Region" class="form-label">Region</label>
+                        <input type="text" class="form-control" id="Region" name="region" disabled>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label for="Ciudad" class="form-label">Ciudad</label>
+                        <input type="text" class="form-control" id="Ciudad" name="city" disabled>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label for="Cp" class="form-label">C.P.</label>
+                        <input type="text" class="form-control" id="Cp" name="cp" disabled>
                     </div>
                 </form>
             </div>

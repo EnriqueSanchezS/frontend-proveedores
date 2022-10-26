@@ -1,18 +1,35 @@
 const form = document.querySelector(".get-proveedor");
+const form2 = document.querySelector(".values");
 const input = document.querySelector(".get-proveedor input");
 const inputs = document.querySelectorAll(".values input");
 const formShow = document.querySelector("#show-info");
 
-let myAlertWarning = document.querySelector("#toast-warning");
-let myAlertDanger = document.querySelector("#toast-danger");
+
 let myAlertInfo = document.querySelector("#toast-info");
-let waAlert = new bootstrap.Toast(myAlertWarning);
-let daAlert = new bootstrap.Toast(myAlertDanger);
+let myAlertSuccess = document.querySelector("#toast-success");
+let myAlertDanger = document.querySelector("#toast-danger");
 let infoAlert = new bootstrap.Toast(myAlertInfo);
+let sucAlert = new bootstrap.Toast(myAlertSuccess);
+let daAlert = new bootstrap.Toast(myAlertDanger);
 
 let inputId = "";
 
-const getProveedor = async (id) => {
+const valuesForm = {
+    title: "",
+    client_id: "",
+    email: "",
+    name: "",
+    surname: "",
+    rfc: "",
+    regimen_fiscal: "",
+    street: "",
+    country: "",
+    region: "",
+    city: "",
+    cp: ""
+};
+
+const getProveedor = async (id = "") => {
     let url = `http://localhost:3001/api/proveedores/${id}`
     const response = await fetch(url, {
         method: 'GET',
@@ -23,16 +40,18 @@ const getProveedor = async (id) => {
     return response.json();
 }
 
-const deleteProveedor = async (id) => {
+const updateProveedor = async (id = "", data = {}) => {
     let url = `http://localhost:3001/api/proveedores/${id}`
     const response = await fetch(url, {
-        method: 'DELETE',
+        method: 'PUT',
+        body: JSON.stringify(data),
         headers: {
             'Content-Type': 'application/json'
         }
     });
     return response.json();
 }
+
 
 input.addEventListener("blur", event => {
     inputId = event.target.value;
@@ -56,24 +75,37 @@ form.addEventListener("submit", event => {
                 })
                 formShow.classList.remove("invisible");
                 formShow.classList.add("visible");
-
-                deleteProveedor(inputId)
-                    .then(data => {
-                        input.value = "";
-                        waAlert.show();
-                        setTimeout(() => {
-                            formShow.classList.remove("visible");
-                            formShow.classList.add("invisible");
-                        }, 3000)
-                    })
-                    .catch(error => {
-                        input.value = "";
-                        daAlert.show();
-                    })
             })
             .catch(error => {
+                console.log(error);
                 infoAlert.show();
             })
+    }
+});
 
+form2.addEventListener("submit", event => {
+    if (!form2.checkValidity()) {
+        event.preventDefault();
+        event.stopPropagation();
+        form2.classList.add('was-validated');
+    } else {
+        event.preventDefault();
+        event.stopPropagation();
+        form2.classList.remove("was-validated");
+        inputs.forEach(input => {
+            valuesForm[input.name] = input.value;
+            input.value = "";
+        })
+        updateProveedor(inputId, valuesForm)
+            .then(data => {
+                sucAlert.show();
+                setTimeout(() => {
+                    formShow.classList.remove("visible");
+                    formShow.classList.add("invisible");
+                }, 1000)
+            })
+            .catch(error => {
+                daAlert.show();
+            })
     }
 });

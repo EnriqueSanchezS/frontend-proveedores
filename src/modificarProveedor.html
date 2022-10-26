@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registrar Proveedor</title>
+    <title>Modificar proveedor</title>
 
     <!-- Bootstrap CSS -->
     <link href="css/style.css" rel="stylesheet">
@@ -13,15 +12,25 @@
     <!-- Bootstrap JS-->
     <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 </head>
-
 <body>
 
     <div aria-live="polite" aria-atomic="true" class="position-relative">
         <div class="toast-container top-0 start-50 translate-middle-x p-3">
+            <div class="toast text-bg-info border-0" id="toast-info" role="status" aria-live="assertive" aria-atomic="true">
+                <div class="d-flex">
+                  <div class="toast-body">
+                    Proveedor inválido 
+                  </div>
+                  <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+                </div>
+            </div>    
+        </div>
+
+        <div class="toast-container top-0 start-50 translate-middle-x p-3">
             <div class="toast text-bg-success border-0" id="toast-success" role="status" aria-live="assertive" aria-atomic="true">
                 <div class="d-flex">
                   <div class="toast-body">
-                    Proveedor registrado exitosamente
+                    Proveedor modificado 
                   </div>
                   <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
                 </div>
@@ -32,7 +41,7 @@
             <div class="toast text-bg-danger border-0" id="toast-danger" role="status" aria-live="assertive" aria-atomic="true">
                 <div class="d-flex">
                   <div class="toast-body">
-                    Hubo un error en el registro del proveedor
+                    Hubo un error al modificar el proveedor
                   </div>
                   <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
                 </div>
@@ -62,54 +71,58 @@
         </div>
     </div>
 
-    <div class="container my-3">
+    <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-8">
-                <h2 class="text-center">Registrar proveedor</h2>
-                <form class="row needs-validation" action="#" id="formulario" novalidate>
-                    <div class="col-12 mb-3">
-                        <label for="Titulo" class="form-label">Titulo</label>
-                        <input type="text" class="form-control" id="Titulo" name="title" maxlength="15" required>
-                        <div class="invalid-feedback">
-                            Titulo requerido
-                        </div>
-                    </div>
-                    <div class="col-md-6 mb-3">
-                        <label for="IdCliente" class="form-label">Id cliente</label>
-                        <input type="text" class="form-control" id="IdCliente" name="client_id" maxlength="40" required>
+            <div class="col-6">
+                <h2 class="text-center">Modificar proveedor</h2>
+                <form class="get-proveedor" novalidate>
+                    <div class="mb-3">
+                        <label for="Proveedor" class="form-label">Id proveedor</label>
+                        <input type="text" class="form-control" id="Proveedor" name="idProveedor" required>
                         <div class="invalid-feedback">
                             Id requerido
                         </div>
                     </div>
+                    <div class="col-md-6 d-grid mx-auto">
+                        <button type="submit" class="btn btn-primary" name="getPro">Obtener proveedor</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="container my-3 invisible" id="show-info">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <h2 class="text-center">Modificar Proveedor</h2>
+                <form class="row values" novalidate>
+                    <div class="col-12 mb-3">
+                        <label for="Titulo" class="form-label">Titulo</label>
+                        <input type="text" class="form-control" id="Titulo" name="title" disabled>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="IdCliente" class="form-label">Id cliente</label>
+                        <input type="text" class="form-control" id="IdCliente" name="client_id" disabled>
+                    </div>
                     <div class="col-md-6 mb-3">
                         <label for="Email" class="form-label">Email</label>
-                        <input type="email" class="form-control" id="Email" name="email" maxlength="241" required>
-                        <div class="invalid-feedback">
-                            Email inválido
-                        </div>
+                        <input type="email" class="form-control" id="Email" name="email" disabled>
                     </div>
                     <div class="col-md-6 mb-3">
                         <label for="Nombre" class="form-label">Nombre</label>
-                        <input type="text" class="form-control" id="Nombre" name="name" maxlength="120" required>
-                        <div class="invalid-feedback">
-                            Nombre requerido
-                        </div>
+                        <input type="text" class="form-control" id="Nombre" name="name" disabled>
                     </div>
                     <div class="col-md-6 mb-3">
                         <label for="Apellido" class="form-label">Apellido</label>
-                        <input type="text" class="form-control" id="Apellido" name="surname" maxlength="120">
+                        <input type="text" class="form-control" id="Apellido" name="surname" disabled>
                     </div>
                     <div class="col-12 mb-3">
                         <label for="Rfc" class="form-label">RFC</label>
-                        <input type="text" class="form-control" id="Rfc" name="rfc" maxlength="30" required>
-                        <div class="invalid-feedback">
-                            RFC requerido
-                        </div>
+                        <input type="text" class="form-control" id="Rfc" name="rfc" disabled>
                     </div>
                     <div class="mb-3">
                         <label for="RegimenFiscal" class="form-label">Régimen fiscal</label>
-                        <input type="text" class="form-control" id="RegimenFiscal" name="regimen_fiscal" maxlength="6"
-                            required>
+                        <input type="text" class="form-control" id="RegimenFiscal" name="regimen_fiscal" maxlength="6" required>
                         <div class="invalid-feedback">
                             Régimen fiscal requerido
                         </div>
@@ -141,10 +154,7 @@
                     </div>
                     <div class="col-md-3 mb-3">
                         <label for="Cp" class="form-label">C.P.</label>
-                        <input type="text" class="form-control" id="Cp" name="cp" maxlength="10" required>
-                        <div class="invalid-feedback">
-                            C.P. requerido
-                        </div>
+                        <input type="text" class="form-control" id="Cp" name="cp">
                     </div>
                     <div class="col-md-6 d-grid mx-auto">
                         <button type="submit" class="btn btn-primary">Enviar</button>
@@ -154,8 +164,7 @@
         </div>
     </div>
 
-    <script src="js/crearProveedor.js"></script>
+    <script src="js/modificarProveedor.js"></script>
 
 </body>
-
 </html>

@@ -68,11 +68,19 @@ form.forEach(form => {
             event.preventDefault();
             event.stopPropagation();
             form.classList.remove("was-validated");
-            sendForm("", valuesForm)
+            sendForm("http://localhost:3001/api/proveedores", valuesForm)
             .then(data => {
+                inputs.forEach(input => {
+                    input.value = "";
+                    input.classList.remove("is-valid");
+                });
                 sucAlert.show();
             })
             .catch(error => {
+                inputs.forEach(input => {
+                    input.value = "";
+                    input.classList.remove("is-valid");
+                });
                 daAlert.show(); 
             })
         }
